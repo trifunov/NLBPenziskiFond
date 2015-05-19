@@ -1,0 +1,476 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Pane_databaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Akcii_Cenoven">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id_Evid" Type="nvarchar" MaxLength="255" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Value" Type="decimal" Precision="25" Scale="7" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Akcii_Dividenden">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id_Evid" Type="nvarchar" MaxLength="255" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Value" Type="decimal" Precision="25" Scale="7" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AktivniDatumi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="id_evid" Type="nvarchar" MaxLength="255" />
+    <Property Name="DateFrom" Type="date" />
+    <Property Name="DateTo" Type="date" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Baza">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Tip" Type="nvarchar" MaxLength="255" />
+    <Property Name="Id_Evid" Type="nvarchar" MaxLength="255" />
+    <Property Name="ISIN" Type="nvarchar" MaxLength="255" />
+    <Property Name="Ticker" Type="nvarchar" MaxLength="255" />
+    <Property Name="Nominala" Type="nvarchar" MaxLength="255" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Denominators">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Sum_Denominator" Type="decimal" Precision="20" Scale="7" />
+  </EntityType>
+  <EntityType Name="Dividend_Yields">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Isin" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Dividend_Yield" Type="decimal" Precision="25" Scale="7" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Currency" Type="nvarchar(max)" />
+    <Property Name="Dividend_Yield_Currency" Type="decimal" Precision="25" Scale="7" />
+  </EntityType>
+  <EntityType Name="DnevniPrinosi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="id_evid" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="datum_valuta" Type="datetime" />
+    <Property Name="prinos" Type="float" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EksportObjekti">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ID_Evid" Type="float" />
+    <Property Name="Dat_Valute" Type="datetime" />
+    <Property Name="Konto" Type="float" />
+    <Property Name="Ozn_ticker" Type="nvarchar" MaxLength="255" />
+    <Property Name="Valuta" Type="nvarchar" MaxLength="255" />
+    <Property Name="Duguje" Type="float" />
+    <Property Name="Potrazuje" Type="float" />
+    <Property Name="ISIN" Type="nvarchar" MaxLength="255" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EksportPrihodi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ID_Evid" Type="float" />
+    <Property Name="Dat_Valute" Type="datetime" />
+    <Property Name="Konto" Type="float" />
+    <Property Name="Ozn_ticker" Type="nvarchar" MaxLength="255" />
+    <Property Name="Valuta" Type="nvarchar" MaxLength="255" />
+    <Property Name="Duguje" Type="float" />
+    <Property Name="Potrazuje" Type="float" />
+    <Property Name="ISIN" Type="nvarchar" MaxLength="255" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EvidencijaAktiva">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ISIN" Type="nvarchar" MaxLength="255" />
+    <Property Name="Ticker" Type="nvarchar" MaxLength="255" />
+    <Property Name="Tip_portfelja" Type="nvarchar" MaxLength="255" />
+    <Property Name="Vrsta_portfelja" Type="nvarchar" MaxLength="255" />
+    <Property Name="Tip" Type="nvarchar" MaxLength="255" />
+    <Property Name="Naziv_instrumenta" Type="nvarchar" MaxLength="255" />
+    <Property Name="Trz" Type="nvarchar" MaxLength="255" />
+    <Property Name="Nominala" Type="nvarchar" MaxLength="255" />
+    <Property Name="Polje_9" Type="float" />
+    <Property Name="Izn_serije" Type="float" />
+    <Property Name="Multiplikator" Type="float" />
+    <Property Name="Datum_izdavanja" Type="datetime" />
+    <Property Name="Datum_dospijeza" Type="nvarchar" MaxLength="255" />
+    <Property Name="Konvencija_dana" Type="nvarchar" MaxLength="255" />
+    <Property Name="Rocnost_instrumenta" Type="nvarchar" MaxLength="255" />
+    <Property Name="Funkcija_izracuna" Type="nvarchar" MaxLength="255" />
+    <Property Name="Kotacija_instrumenta" Type="nvarchar" MaxLength="255" />
+    <Property Name="Short_Sell" Type="nvarchar" MaxLength="255" />
+    <Property Name="Frequency" Type="nvarchar" MaxLength="255" />
+    <Property Name="Kupon" Type="nvarchar" MaxLength="255" />
+    <Property Name="Vrsta_prinosa" Type="nvarchar" MaxLength="255" />
+    <Property Name="Objekt_reval" Type="nvarchar" MaxLength="255" />
+    <Property Name="Yield" Type="nvarchar" MaxLength="255" />
+    <Property Name="Vr_cijene" Type="nvarchar" MaxLength="255" />
+    <Property Name="Fond" Type="nvarchar" MaxLength="255" />
+    <Property Name="Evid_Id" Type="float" />
+    <Property Name="Uneseno" Type="datetime" />
+    <Property Name="Korisnik" Type="nvarchar" MaxLength="255" />
+    <Property Name="Izdavatelj" Type="nvarchar" MaxLength="150" />
+    <Property Name="Polje_30" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opis" Type="nvarchar" MaxLength="255" />
+    <Property Name="Sifra_podatka" Type="nvarchar" MaxLength="255" />
+    <Property Name="Polje_33" Type="nvarchar" MaxLength="255" />
+    <Property Name="CFI_oznaka" Type="nvarchar" MaxLength="255" />
+    <Property Name="Polje_35" Type="nvarchar" MaxLength="255" />
+    <Property Name="Vrsta_uloga" Type="nvarchar" MaxLength="255" />
+    <Property Name="Polje_37" Type="nvarchar" MaxLength="255" />
+    <Property Name="Polje_38" Type="nvarchar" MaxLength="255" />
+    <Property Name="Polje_39" Type="nvarchar" MaxLength="255" />
+    <Property Name="Status/aut" Type="nvarchar" MaxLength="255" />
+    <Property Name="Polje_41" Type="nvarchar" MaxLength="255" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Instruments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Isin" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Currency" Type="nvarchar(max)" />
+    <Property Name="Type" Type="nvarchar(max)" />
+    <Property Name="Country" Type="nvarchar(max)" />
+    <Property Name="Sector" Type="nvarchar(max)" />
+    <Property Name="Total_Yield" Type="decimal" Precision="25" Scale="7" />
+    <Property Name="Total_Yield_Currency" Type="decimal" Precision="25" Scale="7" />
+    <Property Name="Price_Yield_Currency" Type="decimal" Precision="25" Scale="7" />
+    <Property Name="Dividend_Yield" Type="decimal" Precision="25" Scale="7" />
+    <Property Name="Dividend_Yield_Currency" Type="decimal" Precision="25" Scale="7" />
+    <Property Name="Price_Yield" Type="decimal" Precision="25" Scale="7" />
+    <Property Name="Share" Type="decimal" Precision="25" Scale="7" />
+    <Property Name="Full_Name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Numerators">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Isin" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Currency" Type="nvarchar(max)" />
+    <Property Name="Sum_Numerator" Type="decimal" Precision="20" Scale="7" />
+    <Property Name="Sum_Numerator_Currency" Type="decimal" Precision="20" Scale="7" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Price_Yields">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Isin" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Price_Yield" Type="decimal" Precision="25" Scale="7" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Currency" Type="nvarchar(max)" />
+    <Property Name="Price_Yield_Currency" Type="decimal" Precision="25" Scale="7" />
+  </EntityType>
+  <EntityType Name="Record_Assets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Isin" Type="nvarchar(max)" />
+    <Property Name="Id_Record" Type="nvarchar(max)" />
+    <Property Name="Ticker" Type="nvarchar(max)" />
+    <Property Name="Type" Type="nvarchar(max)" />
+    <Property Name="Currency" Type="nvarchar(max)" />
+    <Property Name="Entry_Date" Type="datetime" />
+    <Property Name="Full_Name" Type="nvarchar(max)" />
+    <Property Name="Sector" Type="nvarchar(max)" />
+    <Property Name="Country" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Registers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id_Record" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Conto" Type="nvarchar(max)" />
+    <Property Name="Ticker" Type="nvarchar(max)" />
+    <Property Name="Currency" Type="nvarchar(max)" />
+    <Property Name="Owe" Type="decimal" Precision="20" Scale="7" />
+    <Property Name="Claim" Type="decimal" Precision="20" Scale="7" />
+    <Property Name="Claim_Currency" Type="decimal" Precision="20" Scale="7" />
+    <Property Name="Owe_Currency" Type="decimal" Precision="20" Scale="7" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Registers_Dividend_Yields_Numerators">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Isin" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Currency" Type="nvarchar(max)" />
+    <Property Name="Type" Type="nvarchar(max)" />
+    <Property Name="Daily_Sum" Type="decimal" Precision="25" Scale="7" />
+    <Property Name="Daily_Sum_Currency" Type="decimal" Precision="25" Scale="7" />
+  </EntityType>
+  <EntityType Name="Registers_Numerators">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Isin" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Currency" Type="nvarchar(max)" />
+    <Property Name="Owe" Type="decimal" Precision="20" Scale="7" />
+    <Property Name="Claim" Type="decimal" Precision="20" Scale="7" />
+    <Property Name="Claim_Currency" Type="decimal" Precision="20" Scale="7" />
+    <Property Name="Owe_Currency" Type="decimal" Precision="20" Scale="7" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Registers_Price_Yields_Numerators">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Isin" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Currency" Type="nvarchar(max)" />
+    <Property Name="Type" Type="nvarchar(max)" />
+    <Property Name="Daily_Sum" Type="decimal" Precision="25" Scale="7" />
+    <Property Name="Daily_Sum_Currency" Type="decimal" Precision="25" Scale="7" />
+  </EntityType>
+  <EntityType Name="Registers_Total_Yields_Numerators">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Isin" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Currency" Type="nvarchar(max)" />
+    <Property Name="Type" Type="nvarchar(max)" />
+    <Property Name="Daily_Sum" Type="decimal" Precision="25" Scale="7" />
+    <Property Name="Daily_Sum_Currency" Type="decimal" Precision="25" Scale="7" />
+  </EntityType>
+  <EntityType Name="Registers_Yields">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Isin" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Conto" Type="nvarchar(max)" />
+    <Property Name="Ticker" Type="nvarchar(max)" />
+    <Property Name="Currency" Type="nvarchar(max)" />
+    <Property Name="Sum_Registers" Type="decimal" Precision="25" Scale="7" />
+    <Property Name="Sum_Registers_Currency" Type="decimal" Precision="25" Scale="7" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Registers_Yields_Denominators">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Isin" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Currency" Type="nvarchar(max)" />
+    <Property Name="Daily_Sum" Type="decimal" Precision="25" Scale="7" />
+    <Property Name="Daily_Sum_Currency" Type="decimal" Precision="25" Scale="7" />
+  </EntityType>
+  <EntityType Name="Shares">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Isin" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Share" Type="decimal" Precision="20" Scale="7" />
+    <Property Name="Currency" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Total_Yields">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Isin" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Total_Yield" Type="decimal" Precision="25" Scale="7" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Currency" Type="nvarchar(max)" />
+    <Property Name="Total_Yield_Currency" Type="decimal" Precision="25" Scale="7" />
+  </EntityType>
+  <EntityType Name="Yields_Denominators">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Isin" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Currency" Type="nvarchar(max)" />
+    <Property Name="Sum" Type="decimal" Precision="25" Scale="7" />
+    <Property Name="Sum_Currency" Type="decimal" Precision="25" Scale="7" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Pane_databaseModelStoreContainer">
+    <EntitySet Name="Akcii_Cenoven" EntityType="Self.Akcii_Cenoven" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Akcii_Dividenden" EntityType="Self.Akcii_Dividenden" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AktivniDatumi" EntityType="Self.AktivniDatumi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Baza" EntityType="Self.Baza" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Denominators" EntityType="Self.Denominators" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dividend_Yields" EntityType="Self.Dividend_Yields" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DnevniPrinosi" EntityType="Self.DnevniPrinosi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EksportObjekti" EntityType="Self.EksportObjekti" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EksportPrihodi" EntityType="Self.EksportPrihodi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EvidencijaAktiva" EntityType="Self.EvidencijaAktiva" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Instruments" EntityType="Self.Instruments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Numerators" EntityType="Self.Numerators" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Price_Yields" EntityType="Self.Price_Yields" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Record_Assets" EntityType="Self.Record_Assets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registers" EntityType="Self.Registers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registers_Dividend_Yields_Numerators" EntityType="Self.Registers_Dividend_Yields_Numerators" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registers_Numerators" EntityType="Self.Registers_Numerators" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registers_Price_Yields_Numerators" EntityType="Self.Registers_Price_Yields_Numerators" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registers_Total_Yields_Numerators" EntityType="Self.Registers_Total_Yields_Numerators" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registers_Yields" EntityType="Self.Registers_Yields" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registers_Yields_Denominators" EntityType="Self.Registers_Yields_Denominators" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shares" EntityType="Self.Shares" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Total_Yields" EntityType="Self.Total_Yields" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Yields_Denominators" EntityType="Self.Yields_Denominators" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Pane_databaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="NLBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="EksportObjekti" EntityType="Pane_databaseModel.EksportObjekti" />
+    <EntitySet Name="DnevniPrinosi" EntityType="Pane_databaseModel.DnevniPrinosi" />
+    <EntitySet Name="EksportPrihodi" EntityType="Pane_databaseModel.EksportPrihodi" />
+    <EntitySet Name="AktivniDatumi" EntityType="Pane_databaseModel.AktivniDatumi" />
+    <EntitySet Name="Baza" EntityType="Pane_databaseModel.Baza" />
+    <EntitySet Name="AspNetRoles" EntityType="Pane_databaseModel.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Pane_databaseModel.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Pane_databaseModel.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="Pane_databaseModel.AspNetUsers" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Pane_databaseModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Pane_databaseModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Pane_databaseModel.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="Akcii_Cenoven" EntityType="Pane_databaseModel.Akcii_Cenoven" />
+    <EntitySet Name="Akcii_Dividenden" EntityType="Pane_databaseModel.Akcii_Dividenden" />
+    <EntitySet Name="EvidencijaAktiva" EntityType="Pane_databaseModel.EvidencijaAktiva" />
+    <EntitySet Name="Registers" EntityType="Pane_databaseModel.Registers" />
+    <EntitySet Name="Numerators" EntityType="Pane_databaseModel.Numerators" />
+    <EntitySet Name="Registers_Numerators" EntityType="Pane_databaseModel.Registers_Numerators" />
+    <EntitySet Name="Denominators" EntityType="Pane_databaseModel.Denominators" />
+    <EntitySet Name="Shares" EntityType="Pane_databaseModel.Shares" />
+    <EntitySet Name="Registers_Yields" EntityType="Pane_databaseModel.Registers_Yields" />
+    <EntitySet Name="Total_Yields" EntityType="Pane_databaseModel.Total_Yields" />
+    <EntitySet Name="Registers_Yields_Denominators" EntityType="Pane_databaseModel.Registers_Yields_Denominators" />
+    <EntitySet Name="Yields_Denominators" EntityType="Pane_databaseModel.Yields_Denominators" />
+    <EntitySet Name="Registers_Dividend_Yields_Numerators" EntityType="Pane_databaseModel.Registers_Dividend_Yields_Numerators" />
+    <EntitySet Name="Registers_Price_Yields_Numerators" EntityType="Pane_databaseModel.Registers_Price_Yields_Numerators" />
+    <EntitySet Name="Registers_Total_Yields_Numerators" EntityType="Pane_databaseModel.Registers_Total_Yields_Numerators" />
+    <EntitySet Name="Record_Assets" EntityType="Pane_databaseModel.Record_Assets" />
+    <EntitySet Name="Price_Yields" EntityType="Pane_databaseModel.Price_Yields" />
+    <EntitySet Name="Dividend_Yields" EntityType="Pane_databaseModel.Dividend_Yields" />
+    <EntitySet Name="Instruments" EntityType="Pane_databaseModel.Instruments" />
+  </EntityContainer>
+  <EntityType Name="EksportObjekti">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ID_Evid" Type="Double" />
+    <Property Name="Dat_Valute" Type="DateTime" Precision="3" />
+    <Property Name="Konto" Type="Double" />
+    <Property Name="Ozn_ticker" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Valuta" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Duguje" Type="Double" />
+    <Property Name="Potrazuje" Type="Double" />
+    <Property Name="ISIN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="DnevniPrinosi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="id_evid" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="datum_valuta" Type="DateTime" Precision="3" />
+    <Property Name="prinos" Type="Double" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="EksportPrihodi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ID_Evid" Type="Double" />
+    <Property Name="Dat_Valute" Type="DateTime" Precision="3" />
+    <Property Name="Konto" Type="Double" />
+    <Property Name="Ozn_ticker" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Valuta" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Duguje" Type="Double" />
+    <Property Name="Potrazuje" Type="Double" />
+    <Property Name="ISIN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="AktivniDatumi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="id_evid" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DateFrom" Type="DateTime" Precision="0" />
+    <Property Name="DateTo" Type="DateTime" Precision="0" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Baza">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Tip" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Evid" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ISIN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Ticker" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Nominala" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Pane_databaseModel.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Pane_databaseModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Pane_databaseModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Pane_databaseModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Pane_databaseModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Pane_databaseModel.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="Pane_databaseModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Pane_databaseModel.AspNetUserClaims" Role="AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="Pane_databaseModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Pane_databaseModel.AspNetUserLogins" Role="AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="Pane_databaseModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
+    <End Type="Pane_databaseModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Akcii_Cenoven">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id_Evid" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Value" Type="Decimal" Precision="25" Scale="7" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Akcii_Dividenden">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id_Evid" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Value" Type="Decimal" Precision="25" Scale="7" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="EvidencijaAktiva">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ISIN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Ticker" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Tip_portfelja" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Vrsta_portfelja" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Tip" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Naziv_instrumenta" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Trz" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Nominala" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Polje_9" Type="Double" />
+    <Property Name="Izn_serije" Type="Double" />
+    <Property Name="Multiplikator" Type="Double" />
+    <Property Name="Datum_izdavanja" Type="DateTime" Precision="3" />
+    <Property Name="Datum_dospijeza" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Konvencija_dana" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Rocnost_instrumenta" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Funkcija_izracuna" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Kotacija_instrumenta" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Short_Sell" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Frequency" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Kupon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Vrsta_prinosa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Objekt_reval" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Yield" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Vr_cijene" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Fond" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Evid_Id" Type="Double" />
+    <Property Name="Uneseno" Type="DateTime" Precision="3" />
+    <Property Name="Korisnik" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Izdavatelj" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Polje_30" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opis" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Sifra_podatka" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Polje_33" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CFI_oznaka" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Polje_35" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Vrsta_uloga" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Polje_37" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Polje_38" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Polje_39" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Status_aut" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Polje_41" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Registers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id_Record" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Conto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Ticker" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Currency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Owe" Type="Decimal" Precision="20" Scale="7" />
+    <Property Name="Claim" Type="Decimal" Precision="20" Scale="7" />
+    <Property Name="Claim_Currency" Type="Decimal" Precision="20" Scale="7" />
+    <Property Name="Owe_Currency" Type="Decimal" Precision="20" Scale="7" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Numerators">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Isin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Currency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sum_Numerator" Type="Decimal" Precision="20" Scale="7" />
+    <Property Name="Sum_Numerator_Currency" Type="Decimal" Precision="20" Scale="7" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Registers_Numerators">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Isin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Currency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Owe" Type="Decimal" Precision="20" Scale="7" />
+    <Property Name="Claim" Type="Decimal" Precision="20" Scale="7" />
+    <Property Name="Claim_Currency" Type="Decimal" Precision="20" Scale="7" />
+    <Property Name="Owe_Currency" Type="Decimal" Precision="20" Scale="7" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Denominators">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Sum_Denominator" Type="Decimal" Precision="20" Scale="7" />
+  </EntityType>
+  <EntityType Name="Shares">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Isin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Share" Type="Decimal" Precision="20" Scale="7" />
+    <Property Name="Currency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Registers_Yields">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Isin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Conto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Ticker" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Currency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sum_Registers" Type="Decimal" Precision="25" Scale="7" />
+    <Property Name="Sum_Registers_Currency" Type="Decimal" Precision="25" Scale="7" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Total_Yields">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Isin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Total_Yield" Type="Decimal" Precision="25" Scale="7" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Currency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Total_Yield_Currency" Type="Decimal" Precision="25" Scale="7" />
+  </EntityType>
+  <EntityType Name="Registers_Yields_Denominators">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Isin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Currency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Daily_Sum" Type="Decimal" Precision="25" Scale="7" />
+    <Property Name="Daily_Sum_Currency" Type="Decimal" Precision="25" Scale="7" />
+  </EntityType>
+  <EntityType Name="Yields_Denominators">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Isin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Currency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sum" Type="Decimal" Precision="25" Scale="7" />
+    <Property Name="Sum_Currency" Type="Decimal" Precision="25" Scale="7" />
+  </EntityType>
+  <EntityType Name="Registers_Dividend_Yields_Numerators">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Isin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Currency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Daily_Sum" Type="Decimal" Precision="25" Scale="7" />
+    <Property Name="Daily_Sum_Currency" Type="Decimal" Precision="25" Scale="7" />
+  </EntityType>
+  <EntityType Name="Registers_Price_Yields_Numerators">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Isin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Currency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Daily_Sum" Type="Decimal" Precision="25" Scale="7" />
+    <Property Name="Daily_Sum_Currency" Type="Decimal" Precision="25" Scale="7" />
+  </EntityType>
+  <EntityType Name="Registers_Total_Yields_Numerators">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Isin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Currency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Daily_Sum" Type="Decimal" Precision="25" Scale="7" />
+    <Property Name="Daily_Sum_Currency" Type="Decimal" Precision="25" Scale="7" />
+  </EntityType>
+  <EntityType Name="Record_Assets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Isin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Record" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Ticker" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Currency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Entry_Date" Type="DateTime" Precision="3" />
+    <Property Name="Full_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sector" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Price_Yields">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Isin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Price_Yield" Type="Decimal" Precision="25" Scale="7" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Currency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Price_Yield_Currency" Type="Decimal" Precision="25" Scale="7" />
+  </EntityType>
+  <EntityType Name="Dividend_Yields">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Isin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Dividend_Yield" Type="Decimal" Precision="25" Scale="7" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Currency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Dividend_Yield_Currency" Type="Decimal" Precision="25" Scale="7" />
+  </EntityType>
+  <EntityType Name="Instruments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Isin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Currency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sector" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Total_Yield" Type="Decimal" Precision="25" Scale="7" />
+    <Property Name="Total_Yield_Currency" Type="Decimal" Precision="25" Scale="7" />
+    <Property Name="Price_Yield_Currency" Type="Decimal" Precision="25" Scale="7" />
+    <Property Name="Dividend_Yield" Type="Decimal" Precision="25" Scale="7" />
+    <Property Name="Dividend_Yield_Currency" Type="Decimal" Precision="25" Scale="7" />
+    <Property Name="Price_Yield" Type="Decimal" Precision="25" Scale="7" />
+    <Property Name="Share" Type="Decimal" Precision="25" Scale="7" />
+    <Property Name="Full_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

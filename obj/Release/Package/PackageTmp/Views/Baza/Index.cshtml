@@ -1,0 +1,375 @@
+﻿@using Telerik.Web.Mvc.UI
+@model IEnumerable<NLBPenziskiFond.Models.DnevniPrinosiViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<link href="~/Content/2013.2.611/telerik.common.min.css" rel="stylesheet" />
+<link href="~/Content/2013.2.611/telerik.office2010silver.min.css" rel="stylesheet" />
+<script src="js/jquery-2.1.0.min.js"></script>
+
+
+<h2>Index</h2>
+
+<p>Datum od: <input type="text" id="datepickerFrom" />&nbsp;&nbsp;Datum do: <input type="text" id="datepickerTo" /></p>
+
+Instrument:<select id="txt-id-evid">
+    <option>-----</option>
+    @foreach (var modelItem in Model)
+    {
+        <option value="@modelItem.Id_Evid">@modelItem.Izdavatelj</option>
+    }
+</select>
+
+<div style="float:right">
+    <label>Tip:</label>
+    <select id="selectTip">
+        <option>-----</option>
+        <option value="akcija">Akcii</option>
+        <option value="obvrznica">Obvrznici</option>
+        <option value="depozit">Depozit</option>
+        <option value="udel">Udeli</option>
+        <option value="drzavna">Drzavni zapisi</option>
+    </select>
+    <select id="selectPodtip" style="visibility:hidden">
+        <option value="domasna">Domashna</option>
+        <option value="stranska">Stranski</option>
+    </select>
+    <select id="selectRegion" style="visibility:hidden">
+        <option value="evropa">Evropa</option>
+        <option value="azija">Azija</option>
+        <option value="amerika">Amerika</option>
+    </select>
+    <select id="selectDrzava" style="visibility:hidden">
+        <option value="germanija">Germanija</option>
+        <option value="francija">Francija</option>
+    </select>
+    <select id="selectValuta">
+        <option value="denar">Denari</option>
+        <option value="dolar">Dolari</option>
+        <option value="evro">Evra</option>
+        <option value="jeni">Jeni</option>
+    </select>
+    <select id="selectSektor">
+        <option>-----</option>
+        @foreach (var modelItem in Model)
+        {
+            if(modelItem.Sektor != null)
+            { 
+                <option value="@modelItem.Sektor">@modelItem.Sektor</option>
+            }
+        }
+    </select>
+</div>
+
+
+
+@*@foreach(var modelItem in Model)
+{ 
+    <input type="hidden" id="dateFrom_@modelItem.Id_Evid" value="@modelItem.DateFromAktiven" />
+}
+
+@foreach (var modelItem in Model)
+{
+    <input type="hidden" id="dateTo_@modelItem.Id_Evid" value="@modelItem.DateToAktiven" />
+}*@
+
+<span id="aktiven"></span>
+
+<br />
+
+<input type="radio" name="grPrinos" id="radDneven" value="dneven" style="margin-right: 2px" />Dneven
+
+<input type="radio" name="grPrinos" id="radNedelen" value="nedelen" style="margin-right: 2px" />Nedelen
+
+<input type="radio" name="grPrinos" id="radMesecen" value="mesecen" style="margin-right: 2px" />Mesecen
+
+<input type="radio" name="grPrinos" id="radKvartalen" value="kvartalen" style="margin-right: 2px" />Kvartalen
+
+<input type="submit" id="btn-submit" />
+
+@(Html.Telerik().Grid<NLBPenziskiFond.Models.DnevniPrinosiViewModel>()
+          .Name("Grid").DataKeys(keys =>
+          {
+              keys.Add(p => p.Id);
+          }).Columns(columns =>
+          {
+              columns.Bound(o => o.Id_Evid);
+              columns.Bound(o => o.Datum_valuta);
+              columns.Bound(o => o.DateFrom);
+              columns.Bound(o => o.DateTo);
+              columns.Bound(o => o.Prinos);
+          })
+              .DataBinding(dataBinding => dataBinding.Ajax().Select("GetBaza", "Baza").OperationMode(GridOperationMode.Client))
+                                      .Pageable(x => x.PageSize(30)).Sortable().ClientEvents(x => x.OnDataBinding("onBinding").OnDataBound("onComplete").OnComplete("onComplete"))
+              .Scrollable(x => x.Enabled(false).Height(500)).Groupable().Filterable())
+
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    <script src="~/Scripts/2013.2.611/jquery-1.7.1.min.js"></script>
+    <script>
+        var jq = $.noConflict();
+    </script>
+    @{ Html.Telerik().ScriptRegistrar().jQuery(false).Render(); }
+
+    <script src="~/Scripts/Pages/InitTelerik.js"></script>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        $("#datepickerFrom").datepicker({ dateFormat: 'dd/mm/yy' });
+
+        $(document).on("click", "#btn-submit", function () {
+            var url = "/Baza/GetBaza";
+            var grid = jq("#Grid").data('tGrid');
+            if ($("#radDneven").is(":checked"))
+            {
+                grid.ajax.selectUrl = url + "?dateFrom=" + $("#datepickerFrom").val() + "&dateTo=" + $("#datepickerTo").val() + "&idEvid=" + $("#txt-id-evid").val() + "&nacinNaPrinos=" + $("#radDneven").val();
+                grid.rebind();
+            }
+            else if ($("#radNedelen").is(":checked"))
+            {
+                grid.ajax.selectUrl = url + "?dateFrom=" + $("#datepickerFrom").val() + "&dateTo=" + $("#datepickerTo").val() + "&idEvid=" + $("#txt-id-evid").val() + "&nacinNaPrinos=" + $("#radNedelen").val();
+                grid.rebind();
+            }
+            else if ($("#radMesecen").is(":checked"))
+            {
+                grid.ajax.selectUrl = url + "?dateFrom=" + $("#datepickerFrom").val() + "&dateTo=" + $("#datepickerTo").val() + "&idEvid=" + $("#txt-id-evid").val() + "&nacinNaPrinos=" + $("#radMesecen").val();
+                grid.rebind();
+            }
+            else if ($("#radKvartalen").is(":checked"))
+            {
+                grid.ajax.selectUrl = url + "?dateFrom=" + $("#datepickerFrom").val() + "&dateTo=" + $("#datepickerTo").val() + "&idEvid=" + $("#txt-id-evid").val() + "&nacinNaPrinos=" + $("#radKvartalen").val();
+                grid.rebind();
+            }
+            else
+            {
+                grid.ajax.selectUrl = url + "?dateFrom=" + $("#datepickerFrom").val() + "&dateTo=" + $("#datepickerTo").val() + "&idEvid=" + $("#txt-id-evid").val();
+                grid.rebind();
+            }
+        });
+
+        $(document).on("change", "#datepickerFrom", function () {
+            $("#datepickerTo").datepicker("destroy");
+            $("#datepickerTo").datepicker({ dateFormat: 'dd/mm/yy' });
+        });
+
+        $(document).on("change", "#radDneven", function () {
+            $("#datepickerTo").datepicker("destroy");
+            var newDate = $("#datepickerFrom").val();
+            var array = newDate.split("/");
+            var enableDays = new Date(array[2], array[1] - 1, array[0]);
+            var dates = new Array();
+            for (var i = 0; i < 10000; i++) {
+                var currentDate = new Date(enableDays);
+                currentDate.setDate(currentDate.getDate() + i);
+                dates.push(currentDate.toLocaleDateString());
+            }
+            function enableAllTheseDays(date) {
+                var sdate = $.datepicker.formatDate('dd/mm/yy', date)
+                if ($.inArray(sdate, dates) != -1) {
+                    return [true];
+                }
+                return [false];
+            }
+            $('#datepickerTo').datepicker({ dateFormat: 'dd/mm/yy', beforeShowDay: enableAllTheseDays });
+        });
+
+        $(document).on("change", "#radNedelen", function () {
+            $("#datepickerTo").datepicker("destroy");
+            var newDate = $("#datepickerFrom").val();
+            var array = newDate.split("/");
+            var enableDays = new Date(array[2], array[1] - 1, array[0]);
+            var dates = new Array();
+            for (var i = 0; i < 1000; i++)
+            {
+                var currentDate = new Date(enableDays);
+                currentDate.setDate(currentDate.getDate() + (7 * i));
+                dates.push(currentDate.toLocaleDateString());
+            }
+            function enableAllTheseDays(date) {
+                var sdate = $.datepicker.formatDate('dd/mm/yy', date)
+                if ($.inArray(sdate, dates) != -1) {
+                    return [true];
+                }
+                return [false];
+            }
+            $('#datepickerTo').datepicker({ dateFormat: 'dd/mm/yy', beforeShowDay: enableAllTheseDays });
+        });
+
+        $(document).on("change", "#radMesecen", function () {
+            $("#datepickerTo").datepicker("destroy");
+            var newDate = $("#datepickerFrom").val();
+            var arrayDate = newDate.split("/");
+            var enableDays = new Date(arrayDate[2], arrayDate[1] - 1, arrayDate[0]);
+            var dates = new Array();
+
+            Date.isLeapYear = function (year) {
+                return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0));
+            };
+
+            Date.getDaysInMonth = function (year, month) {
+                return [31, (Date.isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+            };
+
+            Date.prototype.isLeapYear = function () {
+                return Date.isLeapYear(this.getFullYear());
+            };
+
+            Date.prototype.getDaysInMonth = function () {
+                return Date.getDaysInMonth(this.getFullYear(), this.getMonth());
+            };
+
+            Date.prototype.addMonths = function (value) {
+                var n = this.getDate();
+                this.setDate(1);
+                this.setMonth(this.getMonth() + value);
+                this.setDate(Math.min(n, this.getDaysInMonth()));
+                return this;
+            };
+
+            for (var i = 0; i < 200; i++)
+            {
+                var currentDate = new Date(enableDays);
+                currentDate.addMonths(i);
+                if (((enableDays.getMonth() + 1) == 4 && enableDays.getDate() == 30) || ((enableDays.getMonth() + 1) == 6 && enableDays.getDate() == 30) || ((enableDays.getMonth() + 1) == 9 && enableDays.getDate() == 30) || ((enableDays.getMonth() + 1) == 11 && enableDays.getDate() == 30))
+                {
+                    if (((currentDate.getMonth()+1) == 1 && currentDate.getDate() == 30) || ((currentDate.getMonth()+1) == 3 && currentDate.getDate() == 30) || ((currentDate.getMonth()+1) == 5 && currentDate.getDate() == 30) || ((currentDate.getMonth()+1) == 7 && currentDate.getDate() == 30) || ((currentDate.getMonth()+1) == 8 && currentDate.getDate() == 30) || ((currentDate.getMonth()+1) == 10 && currentDate.getDate() == 30) || ((currentDate.getMonth()+1) == 12 && currentDate.getDate() == 30))
+                    {
+                        currentDate.setDate(currentDate.getDate() + 1);
+                        alert(currentDate.toLocaleDateString());
+                    }
+                }
+                if ((enableDays.getMonth()+1) == 2 && enableDays.getDate() == 28)
+                {
+                    if (((currentDate.getMonth() + 1) == 3 && currentDate.getDate() == 28) || ((currentDate.getMonth() + 1) == 5 && currentDate.getDate() == 28) || ((currentDate.getMonth() + 1) == 7 && currentDate.getDate() == 28) || ((currentDate.getMonth() + 1) == 8 && currentDate.getDate() == 28) || ((currentDate.getMonth() + 1) == 10 && currentDate.getDate() == 28) || ((currentDate.getMonth() + 1) == 12 && currentDate.getDate() == 28) || ((currentDate.getMonth() + 1) == 1 && currentDate.getDate() == 28))
+                    {
+                        currentDate.setDate(currentDate.getDate() + 3);
+                    }
+                    if (((currentDate.getMonth() + 1) == 4 && currentDate.getDate() == 28) || ((currentDate.getMonth() + 1) == 6 && currentDate.getDate() == 28) || ((currentDate.getMonth() + 1) == 9 && currentDate.getDate() == 28) || ((currentDate.getMonth() + 1) == 11 && currentDate.getDate() == 28))
+                    {
+                        currentDate.setDate(currentDate.getDate() + 2);
+                    }
+                    if (currentDate.getDaysInMonth() == 29)
+                    {
+                        if ((currentDate.getMonth() + 1) == 2 && currentDate.getDate() == 28)
+                        {
+                            currentDate.setDate(currentDate.getDate() + 1);
+                        }
+                    }
+                }
+                if ((enableDays.getMonth()+1) == 2 && enableDays.getDate() == 29)
+                {
+                    if (((currentDate.getMonth() + 1) == 3 && currentDate.getDate() == 29) || ((currentDate.getMonth() + 1) == 5 && currentDate.getDate() == 29) || ((currentDate.getMonth() + 1) == 7 && currentDate.getDate() == 29) || ((currentDate.getMonth() + 1) == 8 && currentDate.getDate() == 29) || ((currentDate.getMonth() + 1) == 10 && currentDate.getDate() == 29) || ((currentDate.getMonth() + 1) == 12 && currentDate.getDate() == 29) || ((currentDate.getMonth() + 1) == 1 && currentDate.getDate() == 29))
+                    {
+                        currentDate.setDate(currentDate.getDate() + 2);
+                    }
+                    if (((currentDate.getMonth() + 1) == 4 && currentDate.getDate() == 29) || ((currentDate.getMonth() + 1) == 6 && currentDate.getDate() == 29) || ((currentDate.getMonth() + 1) == 9 && currentDate.getDate() == 29) || ((currentDate.getMonth() + 1) == 11 && currentDate.getDate() == 29))
+                    {
+                        currentDate.setDate(currentDate.getDate() + 1);
+                    }
+                }
+                dates.push(currentDate.toLocaleDateString());
+            }
+
+            function enableAllTheseDays(date) {
+                var sdate = $.datepicker.formatDate('dd/mm/yy', date)
+                if ($.inArray(sdate, dates) != -1) {
+                    return [true];
+                }
+                return [false];
+            }
+            $('#datepickerTo').datepicker({ dateFormat: 'dd/mm/yy', beforeShowDay: enableAllTheseDays });
+        });
+
+        $(document).on("change", "#radKvartalen", function () {
+            $("#datepickerTo").datepicker("destroy");
+            var newDate = $("#datepickerFrom").val();
+            var array = newDate.split("/");
+            var enableDays = new Date(array[2], array[1] - 1, array[0]);
+            var dates = new Array();
+
+            Date.isLeapYear = function (year) {
+                return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0));
+            };
+
+            Date.getDaysInMonth = function (year, month) {
+                return [31, (Date.isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+            };
+
+            Date.prototype.isLeapYear = function () {
+                return Date.isLeapYear(this.getFullYear());
+            };
+
+            Date.prototype.getDaysInMonth = function () {
+                return Date.getDaysInMonth(this.getFullYear(), this.getMonth());
+            };
+
+            Date.prototype.addMonths = function (value) {
+                var n = this.getDate();
+                this.setDate(1);
+                this.setMonth(this.getMonth() + value);
+                this.setDate(Math.min(n, this.getDaysInMonth()));
+                return this;
+            };
+
+            for (var i = 0; i < 90; i++) {
+                var currentDate = new Date(enableDays);
+                currentDate.addMonths(i * 3);
+                if (((enableDays.getMonth() + 1) == 4 && enableDays.getDate() == 30) || ((enableDays.getMonth() + 1) == 9 && enableDays.getDate() == 30) || ((enableDays.getMonth() + 1) == 6 && enableDays.getDate() == 30)) {
+                    if (((currentDate.getMonth() + 1) == 7 && currentDate.getDate() == 30) || ((currentDate.getMonth() + 1) == 12 && currentDate.getDate() == 30)) {
+                        currentDate.setDate(currentDate.getDate() + 1);
+                        alert(currentDate.toLocaleDateString());
+                    }
+                }
+                if ((enableDays.getMonth() + 1) == 2 && enableDays.getDate() == 28) {
+                    if (((currentDate.getMonth() + 1) == 5 && currentDate.getDate() == 28) || ((currentDate.getMonth() + 1) == 8 && currentDate.getDate() == 28)) {
+                        currentDate.setDate(currentDate.getDate() + 3);
+                    }
+                    if ((currentDate.getMonth() + 1) == 11 && currentDate.getDate() == 28) {
+                        currentDate.setDate(currentDate.getDate() + 2);
+                    }
+                    if(currentDate.getDaysInMonth() == 29)
+                    {
+                        if((currentDate.getMonth() + 1) == 2 && currentDate.getDate() == 28)
+                        {
+                            currentDate.setDate(currentDate.getDate() + 1);
+                        }
+                    }
+                }
+                if ((enableDays.getMonth() + 1) == 2 && enableDays.getDate() == 29) {
+                    if (((currentDate.getMonth() + 1) == 5 && currentDate.getDate() == 29) || ((currentDate.getMonth() + 1) == 8 && currentDate.getDate() == 29)) {
+                        currentDate.setDate(currentDate.getDate() + 2);
+                    }
+                    if ((currentDate.getMonth() + 1) == 11 && currentDate.getDate() == 29) {
+                        currentDate.setDate(currentDate.getDate() + 1);
+                    }
+                }
+                dates.push(currentDate.toLocaleDateString());
+            }
+
+            function enableAllTheseDays(date) {
+                var sdate = $.datepicker.formatDate('dd/mm/yy', date)
+                if ($.inArray(sdate, dates) != -1) {
+                    return [true];
+                }
+                return [false];
+            }
+            $('#datepickerTo').datepicker({ dateFormat: 'dd/mm/yy', beforeShowDay: enableAllTheseDays });
+        });
+
+    });
+</script>
+
+}

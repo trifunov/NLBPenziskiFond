@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=PANE-PC\SQLEXPRESS;Initial Catalog=Pane_database;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Pane\\Documents\\Visual\ Studio\ 2013\\Projects\\NLBPenziskiFond\\NLBPenziskiFond\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="NLBEntities-Web.config Connection String" description="NLBEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.NLB_Model.csdl|res://*/Models.NLB_Model.ssdl|res://*/Models.NLB_Model.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=PANE-PC\SQLEXPRESS;initial catalog=Pane_database;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Pane\\Documents\\Visual\ Studio\ 2013\\Projects\\NLBPenziskiFond\\NLBPenziskiFond\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='NLBEntities']/@connectionString" />
+  </parameter>
+</parameters>

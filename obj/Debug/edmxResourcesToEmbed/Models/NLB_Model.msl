@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Pane_databaseModelStoreContainer" CdmEntityContainer="NLBEntities">
+    <EntitySetMapping Name="EksportObjekti">
+      <EntityTypeMapping TypeName="Pane_databaseModel.EksportObjekti">
+        <MappingFragment StoreEntitySet="EksportObjekti">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ISIN" ColumnName="ISIN" />
+          <ScalarProperty Name="Potrazuje" ColumnName="Potrazuje" />
+          <ScalarProperty Name="Duguje" ColumnName="Duguje" />
+          <ScalarProperty Name="Valuta" ColumnName="Valuta" />
+          <ScalarProperty Name="Ozn_ticker" ColumnName="Ozn_ticker" />
+          <ScalarProperty Name="Konto" ColumnName="Konto" />
+          <ScalarProperty Name="Dat_Valute" ColumnName="Dat_Valute" />
+          <ScalarProperty Name="ID_Evid" ColumnName="ID_Evid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DnevniPrinosi">
+      <EntityTypeMapping TypeName="Pane_databaseModel.DnevniPrinosi">
+        <MappingFragment StoreEntitySet="DnevniPrinosi">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="prinos" ColumnName="prinos" />
+          <ScalarProperty Name="datum_valuta" ColumnName="datum_valuta" />
+          <ScalarProperty Name="id_evid" ColumnName="id_evid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EksportPrihodi">
+      <EntityTypeMapping TypeName="Pane_databaseModel.EksportPrihodi">
+        <MappingFragment StoreEntitySet="EksportPrihodi">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ISIN" ColumnName="ISIN" />
+          <ScalarProperty Name="Potrazuje" ColumnName="Potrazuje" />
+          <ScalarProperty Name="Duguje" ColumnName="Duguje" />
+          <ScalarProperty Name="Valuta" ColumnName="Valuta" />
+          <ScalarProperty Name="Ozn_ticker" ColumnName="Ozn_ticker" />
+          <ScalarProperty Name="Konto" ColumnName="Konto" />
+          <ScalarProperty Name="Dat_Valute" ColumnName="Dat_Valute" />
+          <ScalarProperty Name="ID_Evid" ColumnName="ID_Evid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AktivniDatumi">
+      <EntityTypeMapping TypeName="Pane_databaseModel.AktivniDatumi">
+        <MappingFragment StoreEntitySet="AktivniDatumi">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+          <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+          <ScalarProperty Name="id_evid" ColumnName="id_evid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Baza">
+      <EntityTypeMapping TypeName="Pane_databaseModel.Baza">
+        <MappingFragment StoreEntitySet="Baza">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nominala" ColumnName="Nominala" />
+          <ScalarProperty Name="Ticker" ColumnName="Ticker" />
+          <ScalarProperty Name="ISIN" ColumnName="ISIN" />
+          <ScalarProperty Name="Id_Evid" ColumnName="Id_Evid" />
+          <ScalarProperty Name="Tip" ColumnName="Tip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="Pane_databaseModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="Pane_databaseModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="Pane_databaseModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="Pane_databaseModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="Pane_databaseModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Akcii_Cenoven">
+      <EntityTypeMapping TypeName="Pane_databaseModel.Akcii_Cenoven">
+        <MappingFragment StoreEntitySet="Akcii_Cenoven">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Id_Evid" ColumnName="Id_Evid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Akcii_Dividenden">
+      <EntityTypeMapping TypeName="Pane_databaseModel.Akcii_Dividenden">
+        <MappingFragment StoreEntitySet="Akcii_Dividenden">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Id_Evid" ColumnName="Id_Evid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EvidencijaAktiva">
+      <EntityTypeMapping TypeName="Pane_databaseModel.EvidencijaAktiva">
+        <MappingFragment StoreEntitySet="EvidencijaAktiva">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Polje_41" ColumnName="Polje_41" />
+          <ScalarProperty Name="Status_aut" ColumnName="Status/aut" />
+          <ScalarProperty Name="Polje_39" ColumnName="Polje_39" />
+          <ScalarProperty Name="Polje_38" ColumnName="Polje_38" />
+          <ScalarProperty Name="Polje_37" ColumnName="Polje_37" />
+          <ScalarProperty Name="Vrsta_uloga" ColumnName="Vrsta_uloga" />
+          <ScalarProperty Name="Polje_35" ColumnName="Polje_35" />
+          <ScalarProperty Name="CFI_oznaka" ColumnName="CFI_oznaka" />
+          <ScalarProperty Name="Polje_33" ColumnName="Polje_33" />
+          <ScalarProperty Name="Sifra_podatka" ColumnName="Sifra_podatka" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Polje_30" ColumnName="Polje_30" />
+          <ScalarProperty Name="Izdavatelj" ColumnName="Izdavatelj" />
+          <ScalarProperty Name="Korisnik" ColumnName="Korisnik" />
+          <ScalarProperty Name="Uneseno" ColumnName="Uneseno" />
+          <ScalarProperty Name="Evid_Id" ColumnName="Evid_Id" />
+          <ScalarProperty Name="Fond" ColumnName="Fond" />
+          <ScalarProperty Name="Vr_cijene" ColumnName="Vr_cijene" />
+          <ScalarProperty Name="Yield" ColumnName="Yield" />
+          <ScalarProperty Name="Objekt_reval" ColumnName="Objekt_reval" />
+          <ScalarProperty Name="Vrsta_prinosa" ColumnName="Vrsta_prinosa" />
+          <ScalarProperty Name="Kupon" ColumnName="Kupon" />
+          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+          <ScalarProperty Name="Short_Sell" ColumnName="Short_Sell" />
+          <ScalarProperty Name="Kotacija_instrumenta" ColumnName="Kotacija_instrumenta" />
+          <ScalarProperty Name="Funkcija_izracuna" ColumnName="Funkcija_izracuna" />
+          <ScalarProperty Name="Rocnost_instrumenta" ColumnName="Rocnost_instrumenta" />
+          <ScalarProperty Name="Konvencija_dana" ColumnName="Konvencija_dana" />
+          <ScalarProperty Name="Datum_dospijeza" ColumnName="Datum_dospijeza" />
+          <ScalarProperty Name="Datum_izdavanja" ColumnName="Datum_izdavanja" />
+          <ScalarProperty Name="Multiplikator" ColumnName="Multiplikator" />
+          <ScalarProperty Name="Izn_serije" ColumnName="Izn_serije" />
+          <ScalarProperty Name="Polje_9" ColumnName="Polje_9" />
+          <ScalarProperty Name="Nominala" ColumnName="Nominala" />
+          <ScalarProperty Name="Trz" ColumnName="Trz" />
+          <ScalarProperty Name="Naziv_instrumenta" ColumnName="Naziv_instrumenta" />
+          <ScalarProperty Name="Tip" ColumnName="Tip" />
+          <ScalarProperty Name="Vrsta_portfelja" ColumnName="Vrsta_portfelja" />
+          <ScalarProperty Name="Tip_portfelja" ColumnName="Tip_portfelja" />
+          <ScalarProperty Name="Ticker" ColumnName="Ticker" />
+          <ScalarProperty Name="ISIN" ColumnName="ISIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registers">
+      <EntityTypeMapping TypeName="Pane_databaseModel.Registers">
+        <MappingFragment StoreEntitySet="Registers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Owe_Currency" ColumnName="Owe_Currency" />
+          <ScalarProperty Name="Claim_Currency" ColumnName="Claim_Currency" />
+          <ScalarProperty Name="Claim" ColumnName="Claim" />
+          <ScalarProperty Name="Owe" ColumnName="Owe" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Ticker" ColumnName="Ticker" />
+          <ScalarProperty Name="Conto" ColumnName="Conto" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Id_Record" ColumnName="Id_Record" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Numerators">
+      <EntityTypeMapping TypeName="Pane_databaseModel.Numerators">
+        <MappingFragment StoreEntitySet="Numerators">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Sum_Numerator_Currency" ColumnName="Sum_Numerator_Currency" />
+          <ScalarProperty Name="Sum_Numerator" ColumnName="Sum_Numerator" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Isin" ColumnName="Isin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registers_Numerators">
+      <EntityTypeMapping TypeName="Pane_databaseModel.Registers_Numerators">
+        <MappingFragment StoreEntitySet="Registers_Numerators">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Owe_Currency" ColumnName="Owe_Currency" />
+          <ScalarProperty Name="Claim_Currency" ColumnName="Claim_Currency" />
+          <ScalarProperty Name="Claim" ColumnName="Claim" />
+          <ScalarProperty Name="Owe" ColumnName="Owe" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Isin" ColumnName="Isin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Denominators">
+      <EntityTypeMapping TypeName="Pane_databaseModel.Denominators">
+        <MappingFragment StoreEntitySet="Denominators">
+          <ScalarProperty Name="Sum_Denominator" ColumnName="Sum_Denominator" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shares">
+      <EntityTypeMapping TypeName="Pane_databaseModel.Shares">
+        <MappingFragment StoreEntitySet="Shares">
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Share" ColumnName="Share" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Isin" ColumnName="Isin" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registers_Yields">
+      <EntityTypeMapping TypeName="Pane_databaseModel.Registers_Yields">
+        <MappingFragment StoreEntitySet="Registers_Yields">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Sum_Registers_Currency" ColumnName="Sum_Registers_Currency" />
+          <ScalarProperty Name="Sum_Registers" ColumnName="Sum_Registers" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Ticker" ColumnName="Ticker" />
+          <ScalarProperty Name="Conto" ColumnName="Conto" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Isin" ColumnName="Isin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Total_Yields">
+      <EntityTypeMapping TypeName="Pane_databaseModel.Total_Yields">
+        <MappingFragment StoreEntitySet="Total_Yields">
+          <ScalarProperty Name="Total_Yield_Currency" ColumnName="Total_Yield_Currency" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Total_Yield" ColumnName="Total_Yield" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Isin" ColumnName="Isin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registers_Yields_Denominators">
+      <EntityTypeMapping TypeName="Pane_databaseModel.Registers_Yields_Denominators">
+        <MappingFragment StoreEntitySet="Registers_Yields_Denominators">
+          <ScalarProperty Name="Daily_Sum_Currency" ColumnName="Daily_Sum_Currency" />
+          <ScalarProperty Name="Daily_Sum" ColumnName="Daily_Sum" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Isin" ColumnName="Isin" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Yields_Denominators">
+      <EntityTypeMapping TypeName="Pane_databaseModel.Yields_Denominators">
+        <MappingFragment StoreEntitySet="Yields_Denominators">
+          <ScalarProperty Name="Sum_Currency" ColumnName="Sum_Currency" />
+          <ScalarProperty Name="Sum" ColumnName="Sum" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Isin" ColumnName="Isin" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registers_Dividend_Yields_Numerators">
+      <EntityTypeMapping TypeName="Pane_databaseModel.Registers_Dividend_Yields_Numerators">
+        <MappingFragment StoreEntitySet="Registers_Dividend_Yields_Numerators">
+          <ScalarProperty Name="Daily_Sum_Currency" ColumnName="Daily_Sum_Currency" />
+          <ScalarProperty Name="Daily_Sum" ColumnName="Daily_Sum" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Isin" ColumnName="Isin" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registers_Price_Yields_Numerators">
+      <EntityTypeMapping TypeName="Pane_databaseModel.Registers_Price_Yields_Numerators">
+        <MappingFragment StoreEntitySet="Registers_Price_Yields_Numerators">
+          <ScalarProperty Name="Daily_Sum_Currency" ColumnName="Daily_Sum_Currency" />
+          <ScalarProperty Name="Daily_Sum" ColumnName="Daily_Sum" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Isin" ColumnName="Isin" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registers_Total_Yields_Numerators">
+      <EntityTypeMapping TypeName="Pane_databaseModel.Registers_Total_Yields_Numerators">
+        <MappingFragment StoreEntitySet="Registers_Total_Yields_Numerators">
+          <ScalarProperty Name="Daily_Sum_Currency" ColumnName="Daily_Sum_Currency" />
+          <ScalarProperty Name="Daily_Sum" ColumnName="Daily_Sum" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Isin" ColumnName="Isin" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Record_Assets">
+      <EntityTypeMapping TypeName="Pane_databaseModel.Record_Assets">
+        <MappingFragment StoreEntitySet="Record_Assets">
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Sector" ColumnName="Sector" />
+          <ScalarProperty Name="Full_Name" ColumnName="Full_Name" />
+          <ScalarProperty Name="Entry_Date" ColumnName="Entry_Date" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Ticker" ColumnName="Ticker" />
+          <ScalarProperty Name="Id_Record" ColumnName="Id_Record" />
+          <ScalarProperty Name="Isin" ColumnName="Isin" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Price_Yields">
+      <EntityTypeMapping TypeName="Pane_databaseModel.Price_Yields">
+        <MappingFragment StoreEntitySet="Price_Yields">
+          <ScalarProperty Name="Price_Yield_Currency" ColumnName="Price_Yield_Currency" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Price_Yield" ColumnName="Price_Yield" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Isin" ColumnName="Isin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dividend_Yields">
+      <EntityTypeMapping TypeName="Pane_databaseModel.Dividend_Yields">
+        <MappingFragment StoreEntitySet="Dividend_Yields">
+          <ScalarProperty Name="Dividend_Yield_Currency" ColumnName="Dividend_Yield_Currency" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Dividend_Yield" ColumnName="Dividend_Yield" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Isin" ColumnName="Isin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instruments">
+      <EntityTypeMapping TypeName="Pane_databaseModel.Instruments">
+        <MappingFragment StoreEntitySet="Instruments">
+          <ScalarProperty Name="Full_Name" ColumnName="Full_Name" />
+          <ScalarProperty Name="Share" ColumnName="Share" />
+          <ScalarProperty Name="Price_Yield" ColumnName="Price_Yield" />
+          <ScalarProperty Name="Dividend_Yield_Currency" ColumnName="Dividend_Yield_Currency" />
+          <ScalarProperty Name="Dividend_Yield" ColumnName="Dividend_Yield" />
+          <ScalarProperty Name="Price_Yield_Currency" ColumnName="Price_Yield_Currency" />
+          <ScalarProperty Name="Total_Yield_Currency" ColumnName="Total_Yield_Currency" />
+          <ScalarProperty Name="Total_Yield" ColumnName="Total_Yield" />
+          <ScalarProperty Name="Sector" ColumnName="Sector" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Isin" ColumnName="Isin" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
